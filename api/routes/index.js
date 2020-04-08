@@ -4,12 +4,12 @@ var firebase = require("firebase");
 
 /* GET home page. */
 router.get('/', function (req, res) {
-  const phoneBook = firebase.database().ref("/Phonebook/");
+  const userReference = firebase.database().ref("/Phonebook/");
   //Attach an asynchronous callback to read the data
-  phoneBook.on("value", function(snapshot) {
+  userReference.on("value", function(snapshot) {
     console.log(snapshot.val());
     res.json(snapshot.val());
-    phoneBook.off("value");
+    userReference.off("value");
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
     res.send("The read failed: " + errorObject.code);

@@ -1,0 +1,32 @@
+{
+    users {
+    userName
+    Name
+    Nomor
+    }
+}
+
+
+mutation {
+    addUser(userName: "Eko", Name: "Eko Cikungunya", Nomor: "923892193") {
+    userName
+    Name
+    Nomor
+    }
+}
+
+
+mutation {
+    updateUser(userName: "Eko", Name: "peter", Nomor: "01990120910") {
+    userName
+    Name
+    Nomor
+    }
+}
+
+
+mutation {
+    removeUser(userName: "green") {
+    userName
+    }
+}
