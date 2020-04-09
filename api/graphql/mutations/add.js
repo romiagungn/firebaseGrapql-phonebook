@@ -12,7 +12,7 @@ exports.add = {
         Name: {
             type: new GraphQLNonNull(GraphQLString),
         },
-        Nomor: {
+        Number: {
             type: new GraphQLNonNull(GraphQLString),
         }
     },

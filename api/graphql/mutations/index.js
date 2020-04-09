@@ -1,9 +1,9 @@
-var addUser = require('./add').add;
-var removeUser = require('./remove').remove;
-var updateUser = require('./update').update;
+var addContact = require('./add').add;
+var removeContact = require('./remove').remove;
+var updateContact = require('./update').update;
 
 module.exports = {
-    addUser,
-    removeUser,
-    updateUser
+    addContact,
+    removeContact,
+    updateContact
 }

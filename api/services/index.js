@@ -24,7 +24,7 @@ const createUser = (params) => {
     const referencePath = `/Phonebook/${params.id}/`;
     const userReference = firebase.database().ref(referencePath);
     return (new Promise((resolve, reject) => {
-        userReference.set({ Name: params.Name, Nomor: params.Nomor }, (error) => {
+        userReference.set({ Name: params.Name, Number: params.Number }, (error) => {
             if (error) {
                 reject("Data could not be deleted." + error);
             } else {
@@ -39,7 +39,7 @@ const updateUser = (params) => {
     const referencePath = `/Phonebook/${params.id}/`;
     const userReference = firebase.database().ref(referencePath);
     return (new Promise((resolve, reject) => {
-        userReference.update({ Name: params.Name, Nomor: params.Nomor }, (error) => {
+        userReference.update({ Name: params.Name, Number: params.Number }, (error) => {
             if (error) {
                 reject("Data could not be deleted." + error);
             } else {

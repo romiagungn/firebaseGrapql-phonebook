@@ -15,7 +15,7 @@ exports.userType = new GraphQLObjectType({
             Name: {
                 type: GraphQLString
             },
-            Nomor: {
+            Number: {
                 type: GraphQLString
             }
         }

@@ -20,11 +20,11 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   const userName = req.body.username;
   const name = req.body.name;
-  const nomor = req.body.nomor;
+  const number = req.body.number;
 
   const referencePath = '/Phonebook/'+userName+'/';
   const userReference = firebase.database().ref(referencePath);
-  userReference.set({Name: name, Nomor: nomor}, function(error) {
+  userReference.set({Name: name, Number: number}, function(error) {
     if (error) {
       res.send("Data could not be saved." + error);
     } else {
@@ -37,11 +37,11 @@ router.post('/', function (req, res) {
 router.put('/:username', function (req, res) {
   const userName = req.params.username;
   const name = req.body.name;
-  const nomor = req.body.nomor;
+  const number = req.body.number;
 
   var referencePath = '/Phonebook/'+userName+'/';
   var userReference = firebase.database().ref(referencePath);
-  userReference.update({Name: name, Nomor: nomor}, function(error) {
+  userReference.update({Name: name, Number: number}, function(error) {
     if (error) {
       res.send("Data could not be updated." + error);
     } else {

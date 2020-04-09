@@ -2,31 +2,31 @@
     users {
     id
     Name
-    Nomor
+    Number
     }
 }
 
 
 mutation {
-    addUser(id: "Eko", Name: "Eko Cikungunya", Nomor: "923892193") {
+    addContact(id: "Eko", Name: "Eko Cikungunya", Number: "923892193") {
     id
     Name
-    Nomor
+    Number
     }
 }
 
 
 mutation {
-    updateUser(id: "Eko", Name: "peter", Nomor: "01990120910") {
+    updateContact(id: "Eko", Name: "peter", Number: "01990120910") {
     id
     Name
-    Nomor
+    Number
     }
 }
 
 
 mutation {
-    removeUser(id: "Eko") {
+    removeContact(id: "Eko") {
     id
     }
 }
