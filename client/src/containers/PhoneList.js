@@ -13,7 +13,7 @@ class PhoneList extends Component {
     render() {
         // console.log(this.props,'ini list men')
         const contact = this.props.phones.map((item, index) => {
-            console.log(item,'ini sent bos')
+            // console.log(item,'ini sent bos')
             return (
                 item.isVisible && (item.onEdit ? 
                 <PhoneEditFrom 

@@ -46,9 +46,6 @@ class PhoneForm extends Component {
                         <button className="btn" type="button" data-toggle="collapse" data-target="#addForm" aria-expanded="false" aria-controls="addForm">
                             <i className="fas fa-plus"></i> Add
                     </button>
-                        <button className="btn ml-2" type="button" data-toggle="collapse" data-target="#searchFrom" aria-expanded="false" aria-controls="searchFrom">
-                            <i className="fas fa-search"></i> Search
-                    </button>
                     </p>
 
                     <div className="collapse" id="addForm">
@@ -70,24 +67,6 @@ class PhoneForm extends Component {
                             </div>
                         </div>
                     </div>
-
-                    <div className="collapse my-2" id="searchFrom">
-                        <div className="card card-header">
-                            <p className="card-text">Search Contact</p>
-                        </div>
-                        <div className="card card-body">
-                            <div className="row">
-                                <div className="col-3">
-                                    <input type="text" className="form-control" placeholder="Search Your Name Here" />
-                                </div>
-                                <div className="col-3">
-                                    <input type="text" className="form-control" placeholder="Search Phone Number Here" />
-                                </div>
-                                <button type="submit" className="btn">Search</button>
-                            </div>
-                        </div>
-                    </div>
-
                 </form>
 
             </div>

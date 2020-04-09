@@ -1,5 +1,6 @@
 import ApolloClient from 'apollo-boost';
 import gql from 'graphql-tag';
+import Swal from "sweetalert2";
 
 const API_URL = 'http://localhost:3000/graphql/'
 
@@ -33,7 +34,7 @@ export const loadContact = () => {
             query: phonesQuery,
         })
             .then(function (response) {
-                // console.log(response,'ini Contact men');
+                // console.log(response, 'ini Contact men');
                 dispatch(loadContactSuccess(response.data.users))
 
             })
@@ -82,6 +83,12 @@ export const postContact = (id, Name, Number) => {
             }
         })
             .then(function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Selamat',
+                    text: 'Selamat Contact Berhasil ditambahkan'
+                })
+                console.log(response.data, 'ini hasil add data men')
                 dispatch(postContactSuccess(response.data))
             })
             .catch(function (error) {
@@ -135,7 +142,7 @@ export const UpdateContact = (id, Name, Number) => {
             }
         })
             .then(function (response) {
-                console.log(response, 'ini hasil update data')
+                alert('data berhasil di update')
                 dispatch(UpdateContactSuccess(response.data))
             })
             .catch(function (error) {
@@ -177,10 +184,9 @@ export const deleteContact = (id) => {
             variables: {
                 id
             }
+        }).then(function (response) {
+            dispatch(deleteContactSuccess(response))
         })
-            .then(function (response) {
-                dispatch(deleteContactSuccess(response))
-            })
             .catch(function (error) {
                 console.error(error);
                 dispatch(deleteContactFailure())
@@ -217,3 +223,16 @@ export const resendContact = (id, Name, Number) => {
             });
     }
 }
+
+// Start Search data
+
+export const searchContact = (value) => ({
+    type: "SEARCH_CONTACT",
+    value: value.trim()
+})
+
+export const searchContactReset = () => ({
+    type: "SEARCH_CONTACT_RESET"
+})
+
+// End Search data

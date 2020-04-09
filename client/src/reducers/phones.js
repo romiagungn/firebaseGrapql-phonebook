@@ -19,7 +19,7 @@ const phones = (state = [], action) => {
                     sent: true,
                     isVisible: true,
                     onEdit: false
-                    
+
                 }
             ]
 
@@ -79,6 +79,18 @@ const phones = (state = [], action) => {
                     onEdit: false,
                     sent: false
                 })
+            }))
+
+        case "SEARCH_CONTACT":
+            return state.map((item) => ({
+                ...item,
+                isVisible: (item.Name.toLowerCase().includes(action.value) || item.Number.includes(action.value))
+            }))
+
+        case "SEARCH_CONTACT_RESET":
+            return state.map((item) => ({
+                ...item,
+                isVisible: true
             }))
 
         case 'DELETE_CONTACT':
