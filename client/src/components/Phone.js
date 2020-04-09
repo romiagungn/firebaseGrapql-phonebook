@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Phone = (props) => {
+    // console.log(props, 'ini data di component')
     return (
         <tr>
             <th scope="row">{props.id}</th>
@@ -14,10 +15,17 @@ const Phone = (props) => {
                 </button>
                 <button
                     type="button"
-                    className="btn"> Hapus
+                    className="btn"
+                    onClick={props.sent ? props.onDelete : props.resend}>
+                    {props.sent ? 'Hapus' : 'Kirim Ulang'}
                 </button>
             </td>
-            
+            {!props.sent &&
+                <td style={{ color: "red", fontSize: "8px" }}>
+                    network failed, please check your connections
+            </td>
+            }
+
         </tr>
     )
 }

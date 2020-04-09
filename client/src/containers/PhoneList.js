@@ -10,13 +10,16 @@ class PhoneList extends Component {
     }
 
     render() {
+        // console.log(this.props,'ini list men')
         const contact = this.props.phones.map((item, index) => {
+            // console.log(item,'ini sent bos')
             return (
                 <Phone
                     key={index}
                     id={item.id}
                     Name={item.Name}
                     Number={item.Number}
+                    sent={item.sent}
                 />)
         })
         return (

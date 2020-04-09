@@ -33,7 +33,7 @@ export const loadContact = () => {
             query: phonesQuery,
         })
             .then(function (response) {
-                console.log(response,'ini Contact men');
+                // console.log(response,'ini Contact men');
                 dispatch(loadContactSuccess(response.data.users))
 
             })
