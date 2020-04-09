@@ -1,6 +1,6 @@
 {
     users {
-    userName
+    id
     Name
     Nomor
     }
@@ -8,8 +8,8 @@
 
 
 mutation {
-    addUser(userName: "Eko", Name: "Eko Cikungunya", Nomor: "923892193") {
-    userName
+    addUser(id: "Eko", Name: "Eko Cikungunya", Nomor: "923892193") {
+    id
     Name
     Nomor
     }
@@ -17,8 +17,8 @@ mutation {
 
 
 mutation {
-    updateUser(userName: "Eko", Name: "peter", Nomor: "01990120910") {
-    userName
+    updateUser(id: "Eko", Name: "peter", Nomor: "01990120910") {
+    id
     Name
     Nomor
     }
@@ -26,7 +26,7 @@ mutation {
 
 
 mutation {
-    removeUser(userName: "green") {
-    userName
+    removeUser(id: "Eko") {
+    id
     }
 }

@@ -35,7 +35,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // const userSchema = require('./graphql').userSchema;
-var userSchema = require('./grapql/index').userSchema;
+var userSchema = require('./graphql').userSchema;
 app.use('/graphql', cors(), graphqlHTTP({
     schema: userSchema,
     rootValue: global,

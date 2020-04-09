@@ -6,7 +6,7 @@ var services = require('../../services');
 exports.update = {
     type: UserType.userType,
     args: {
-        userName: {
+        id: {
             type: new GraphQLNonNull(GraphQLString),
         },
         Name: {
