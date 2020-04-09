@@ -1,33 +1,26 @@
 import React from 'react';
 
-const Phone = (props) => {
-    // console.log(props, 'ini data di component')
+function Item(props) {
     return (
         <tr>
+            <th scope="row">{props.index}</th>
             <th scope="row">{props.id}</th>
-            <td>{props.Name}</td>
-            <td>{props.Number}</td>
+            <th scope="row" className="text-left">{props.Name}</th>
+            <th scope="row">{props.Number}</th>
             <td>
-                <button
-                    type="button"
-                    className="btn mr-2">
-                    Edit
-                </button>
-                <button
-                    type="button"
-                    className="btn"
-                    onClick={props.sent ? props.onDelete : props.resend}>
-                    {props.sent ? 'Hapus' : 'Kirim Ulang'}
-                </button>
+                {props.sent ? (
+                    <div>
+                        <button type="button" className="btn mr-2" onClick={props.onEdit}>
+                            <i className="fas fa-pencil-alt"></i> Edit</button>
+                        <button type="button" className="btn" onClick={props.onDelete}><i className="fas fa-trash"></i> Delete</button>
+                    </div>
+                ) :
+                    <button type="button" onClick={props.resend} className="btn">
+                        <i className="fas fa-sync-alt"></i> Resend</button>
+                }
             </td>
-            {!props.sent &&
-                <td style={{ color: "red", fontSize: "8px" }}>
-                    network failed, please check your connections
-            </td>
-            }
-
         </tr>
     )
 }
 
-export default Phone;
+export default Item;

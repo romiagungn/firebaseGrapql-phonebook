@@ -106,11 +106,19 @@ const UpdateContactRedux = (id, Name, Number) => ({
     type: 'UPDATE_CONTACT', id, Name, Number
 })
 
+export const updateON = (id) => ({
+    type: 'UPDATE_ON', id
+})
+
+export const updateOFF = (id) => ({
+    type: 'UPDATE_OFF', id
+})
+
 
 export const UpdateContact = (id, Name, Number) => {
     const addQuery = gql`
         mutation updateContact($id: String!, $Name: String!, $Number: String!) {
-            addContact(id: $id, Name: $Name, Number: $Number) {
+            updateContact(id: $id, Name: $Name, Number: $Number) {
                 id
                 Name
                 Number
@@ -127,6 +135,7 @@ export const UpdateContact = (id, Name, Number) => {
             }
         })
             .then(function (response) {
+                console.log(response, 'ini hasil update data')
                 dispatch(UpdateContactSuccess(response.data))
             })
             .catch(function (error) {
@@ -183,7 +192,7 @@ export const deleteContact = (id) => {
 
 export const resendContact = (id, Name, Number) => {
     const addQuery = gql`
-            mutation updateContact($id: String!, $Name: String!, $Number: String!) {
+            mutation addContact($id: String!, $Name: String!, $Number: String!) {
             addContact(id: $id, Name: $Name, Number: $Number) {
                 id
                 Name

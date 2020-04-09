@@ -4,6 +4,8 @@ const phones = (state = [], action) => {
             // console.log(action, 'ini dataaaaaaa')
             return action.users.map((item) => {
                 item.sent = true;
+                item.isVisible = true;
+                item.onEdit = false;
                 return item
             })
 
@@ -14,7 +16,10 @@ const phones = (state = [], action) => {
                     id: action.id,
                     Name: action.Name,
                     Number: action.Number,
-                    sent: true
+                    sent: true,
+                    isVisible: true,
+                    onEdit: false
+                    
                 }
             ]
 
@@ -33,31 +38,48 @@ const phones = (state = [], action) => {
                 return item
             })
 
-        case 'UPDATE_CONTACT':
-            return [
-                ...state,
-                {
-                    id: action.id,
+        case 'UPDATE_ON':
+            return state.map(item => ({
+                ...item,
+                ...(item.id === action.id && { onEdit: true })
+            }))
+
+        case 'UPDATE_OFF':
+            return state.map(item => ({
+                ...item,
+                ...(item.id === action.id && { onEdit: false })
+            }))
+
+        case 'UPDATE_DATA':
+            return state.map(item => ({
+                ...item,
+                ...(item.id === action.id && {
+                    onEdit: false,
                     Name: action.Name,
                     Number: action.Number,
                     sent: true
-                }
-            ]
+                })
+            }))
 
-        case 'UPDATE_CONTACT_SUCCESS':
-            return state.map((item) => {
-                // console.log(item, 'ini save data')
-                item.sent = true;
-                return item
-            })
+        case 'UPDATE_DATA_SUCCESS':
+            return state.map(item => ({
+                ...item,
+                ...(item.id === action.id && {
+                    onEdit: false,
+                    Name: action.Name,
+                    Number: action.Number,
+                    sent: true
+                })
+            }))
 
-        case 'UPDATE_CONTACT_FAILURE':
-            return state.map((item) => {
-                if (item.id === action.id) {
-                    item.sent = false;
-                }
-                return item
-            })
+        case 'UPDATE_DATA_FAILURE':
+            return state.map(item => ({
+                ...item,
+                ...(item.id === action.id && {
+                    onEdit: false,
+                    sent: false
+                })
+            }))
 
         case 'DELETE_CONTACT':
             return state.filter((item) => item.id !== action.id)

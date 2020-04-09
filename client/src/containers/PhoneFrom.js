@@ -8,9 +8,8 @@ class PhoneForm extends Component {
         this.state = {
             id: "",
             Name: "",
-            Number: "",
+            Number: ""
         }
-
         this.handleIDchange = this.handleIDchange.bind(this);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleNumberChange = this.handleNumberChange.bind(this);

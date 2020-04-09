@@ -9,15 +9,15 @@ export default class PhoneBox extends Component {
             <div className="container-fluid my-5">
                 <div className="container card">
                     <div className="card-header text-center">
-                        <h1> <i className="fa fa-address-book"></i> Phones Book App</h1>
+                        <h1> <i className="fa fa-address-book"></i> Phones Book Apps</h1>
                     </div>
                     <div className="card-body">
                         <PhoneForm />
                         
-                        <PhoneList />
+                        <PhoneList data={this.props.phone}/>
                     </div>
                     <div className="card-footer text-center">
-                        Semuanya Telah Berubah sesuai keinginan masing masing
+                    <i className="far fa-copyright"></i> Created by Romie Agung Nugraha
                     </div>
                 </div>
             </div>
