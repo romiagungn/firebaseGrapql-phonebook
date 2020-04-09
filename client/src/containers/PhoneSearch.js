@@ -46,9 +46,14 @@ class SearchPhonebook extends React.Component {
     }
 
     render() {
-        if (this.state.search) {
-            return (
-                <div className="card my-4">
+
+        return (
+            <div>
+                <button className="btn my-4 mr-2" onClick={this.handleButtonSearch} type="button" data-toggle="collapse" data-target="#searchForm" aria-expanded="false" aria-controls="searchForm">
+                    <i className="fas fa-search"></i> Search
+            </button>
+
+                <div className="collapse" id="searchForm">
                     <h5 className="card-header">Search Contact</h5>
                     <div className="card-body">
                         <form className="form-row">
@@ -65,17 +70,17 @@ class SearchPhonebook extends React.Component {
                                 <button type="button" onClick={this.handleReset} className="btn "><i className="fas fa-undo"></i> Reset</button>
                             </div>
                             <div className="form-group">
-                                <button type="button" onClick={this.handleButtonCancel} className="btn "><i className="fas fa-times"></i> Cancel</button>
+                                <button type="button" onClick={this.handleButtonCancel} className="btn" data-toggle="collapse" data-target="#searchForm" aria-expanded="false" aria-controls="searchForm"><i className="fas fa-times"></i> Cancel</button>
                             </div>
                         </form>
                     </div>
+
+
                 </div>
-            )
-        } else {
-            return (
-                <button type="button" onClick={this.handleButtonSearch} className="btn my-4 mr-2"><i className="fas fa-search"></i> Search</button>
-            )
-        }
+            </div>
+            // <button type="button" onClick={this.handleButtonSearch} className="btn my-4 mr-2"><i className="fas fa-search"></i> Search</button>
+        )
+
     }
 }
 
