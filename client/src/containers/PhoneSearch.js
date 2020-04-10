@@ -55,7 +55,7 @@ class SearchPhonebook extends React.Component {
 
                 <div className="collapse" id="searchForm">
                     <h5 className="card-header">Search Contact</h5>
-                    <div className="card-body">
+                    <div className="card card-body">
                         <form className="form-row">
                             <div className="form-group col-md-4">
                                 <div className="input-group">

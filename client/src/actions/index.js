@@ -185,6 +185,13 @@ export const deleteContact = (id) => {
                 id
             }
         }).then(function (response) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your work has been Deleted',
+                showConfirmButton: false,
+                timer: 1000
+            })
             dispatch(deleteContactSuccess(response))
         })
             .catch(function (error) {
