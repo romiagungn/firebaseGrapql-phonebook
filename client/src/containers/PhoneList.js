@@ -12,10 +12,10 @@ class PhoneList extends Component {
 
     render() {
         // console.log(this.props,'ini list men')
-        const contact = this.props.phones.map((item, index) => {
-            // console.log(item,'ini sent bos')
+        const contact = this.props.users.map((item, index) => {
+            console.log(item,'ini sent bos')
             return (
-                item.isVisible && (item.onEdit ? 
+                item.search && (item.onEdit ? 
                 <PhoneEditFrom 
                     key={index} 
                     id={item.id} index={index + 1} 
@@ -23,9 +23,10 @@ class PhoneList extends Component {
                     sent={item.sent}/>
                     :
                     <Phone 
-                    key={index} id={item.id} 
-                    index={index + 1} Name={item.Name} 
-                    Number={item.Number} sent={item.sent}/>)
+                    key={index} 
+                    id={item.id} index={index + 1} 
+                    Name={item.Name} Number={item.Number} 
+                    sent={item.sent}/>)
                 )
         })
         return (
@@ -48,7 +49,7 @@ class PhoneList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    phones: state.phones
+    users: state.users
 })
 
 const mapDispatchToProps = (dispatch) => ({

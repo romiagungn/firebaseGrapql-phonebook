@@ -10,33 +10,31 @@ const client = new ApolloClient({
 
 
 // start load contact data
-export const loadContactSuccess = (users) => ({
+const loadContactSuccess = (users) => ({
     type: 'LOAD_CONTACT_SUCCESS',
     users
 })
 
-export const loadContactFailure = () => ({
+const loadContactFailure = () => ({
     type: 'LOAD_CONTACT_FAILURE'
 })
 
 export const loadContact = () => {
-    const phonesQuery = gql`
-    {
-        users {
+    const contactQuery = gql`
+    query { 
+        users{
         id
         Name
         Number
-        }
+    }
     }`;
-    // console.log(phonesQuery, 'ini load adta men')
     return dispatch => {
         return client.query({
-            query: phonesQuery,
+            query: contactQuery,
         })
             .then(function (response) {
-                // console.log(response, 'ini Contact men');
+                console.log(response,'ini load data men');
                 dispatch(loadContactSuccess(response.data.users))
-
             })
             .catch(function (error) {
                 console.error(error);
@@ -100,9 +98,9 @@ export const postContact = (id, Name, Number) => {
 
 // start update contact data
 
-export const UpdateContactSuccess = (Contact) => ({
+export const UpdateContactSuccess = (contact) => ({
     type: 'UPDATE_CONTACT_SUCCESS',
-    Contact
+    contact
 })
 
 export const UpdateContactFailure = (id) => ({
@@ -142,7 +140,8 @@ export const UpdateContact = (id, Name, Number) => {
             }
         })
             .then(function (response) {
-                alert('data berhasil di update')
+                // alert('data berhasil di update')
+                console.log(response,'ini hasil update data')
                 dispatch(UpdateContactSuccess(response.data))
             })
             .catch(function (error) {

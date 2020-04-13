@@ -1,13 +1,13 @@
 const phones = (state = [], action) => {
     switch (action.type) {
         case 'LOAD_CONTACT_SUCCESS':
-            // console.log(action, 'ini dataaaaaaa')
-            return action.users.map((item) => {
-                item.sent = true;
-                item.isVisible = true;
-                item.onEdit = false;
-                return item
-            })
+                // console.log(action, "ini item cuk")
+                return action.users.map((item) => {
+                    item.sent = true;
+                    item.search = true;
+                    item.onEdit = false; 
+                    return item
+                })
 
         case 'POST_CONTACT':
             return [
@@ -17,7 +17,7 @@ const phones = (state = [], action) => {
                     Name: action.Name,
                     Number: action.Number,
                     sent: true,
-                    isVisible: true,
+                    search: true,
                     onEdit: false
 
                 }
@@ -50,27 +50,27 @@ const phones = (state = [], action) => {
                 ...(item.id === action.id && { onEdit: false })
             }))
 
-        case 'UPDATE_DATA':
-            return state.map(item => ({
-                ...item,
-                ...(item.id === action.id && {
-                    onEdit: false,
-                    Name: action.Name,
-                    Number: action.Number,
-                    sent: true
-                })
-            }))
-
-        case 'UPDATE_DATA_SUCCESS':
-            return state.map(item => ({
-                ...item,
-                ...(item.id === action.id && {
-                    onEdit: false,
-                    Name: action.Name,
-                    Number: action.Number,
-                    sent: true
-                })
-            }))
+            case 'UPDATE_USER':
+                return state.map(item => ({
+                    ...item,
+                    ...(item.id === action.id && {
+                        onEdit: false,
+                        Name: action.Name,
+                        Number: action.Number,
+                        sent: true
+                    })
+                }))
+    
+            case 'UPDATE_USER_SUCCESS':
+                return state.map(item => ({
+                    ...item,
+                    ...(item.id === action.id && {
+                        onEdit: false,
+                        Name: action.Name,
+                        Number: action.Number,
+                        sent: true
+                    })
+                }))
 
         case 'UPDATE_DATA_FAILURE':
             return state.map(item => ({
@@ -84,13 +84,13 @@ const phones = (state = [], action) => {
         case "SEARCH_CONTACT":
             return state.map((item) => ({
                 ...item,
-                isVisible: (item.Name.toLowerCase().includes(action.value) || item.Number.includes(action.value))
+                search: (item.id.toLowerCase().includes(action.value) || item.Name.toLowerCase().includes(action.value) || item.Number.includes(action.value))
             }))
 
         case "SEARCH_CONTACT_RESET":
             return state.map((item) => ({
                 ...item,
-                isVisible: true
+                search: true
             }))
 
         case 'DELETE_CONTACT':

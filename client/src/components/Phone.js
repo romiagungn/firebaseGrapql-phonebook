@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Item(props) {
+const contact = (props) => {
     return (
         <tr>
             <th scope="row">{props.index}</th>
             <th scope="row">{props.id}</th>
-            <th scope="row" className="text-left">{props.Name}</th>
+            <th scope="row">{props.Name}</th>
             <th scope="row">{props.Number}</th>
             <td>
                 {props.sent ? (
@@ -23,4 +23,4 @@ function Item(props) {
     )
 }
 
-export default Item;
+export default contact;
