@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PhoneList from '../containers/PhoneList';
 import PhoneForm from '../containers/PhoneFrom';
-import PhoneSearch from '../containers/PhoneSearch';
 
 export default class PhoneBox extends Component {
 
@@ -14,7 +13,6 @@ export default class PhoneBox extends Component {
                     </div>
                     <div className="card-body">
                         <PhoneForm /> 
-                        <PhoneSearch />
                         <PhoneList />
                     </div>
                     <div className="card-footer text-center">

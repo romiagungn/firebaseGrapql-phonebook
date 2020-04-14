@@ -11,23 +11,26 @@ class PhoneList extends Component {
     }
 
     render() {
-        // console.log(this.props,'ini list men')
-        const contact = this.props.users.map((item, index) => {
-            console.log(item,'ini sent bos')
+        console.log(this.props,'ini list men')
+        const contact = this.props.data.map((item, index) => {
+            // console.log(item, 'ini sent bos')
             return (
-                item.search && (item.onEdit ? 
-                <PhoneEditFrom 
-                    key={index} 
-                    id={item.id} index={index + 1} 
-                    Name={item.Name} Number={item.Number} 
-                    sent={item.sent}/>
+                item.search && (item.onEdit ?
+                    <PhoneEditFrom
+                        key={index}
+                        id={item.id} index={index + 1}
+                        Name={item.Name}
+                        Number={item.Number}
+                        sent={item.sent} />
                     :
-                    <Phone 
-                    key={index} 
-                    id={item.id} index={index + 1} 
-                    Name={item.Name} Number={item.Number} 
-                    sent={item.sent}/>)
+                    <Phone
+                        key={index}
+                        id={item.id} index={index + 1}
+                        Name={item.Name}
+                        Number={item.Number}
+                        sent={item.sent} />
                 )
+            )
         })
         return (
             <table className="table table-striped my-3">
@@ -49,7 +52,7 @@ class PhoneList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    users: state.users
+    data: state.users
 })
 
 const mapDispatchToProps = (dispatch) => ({

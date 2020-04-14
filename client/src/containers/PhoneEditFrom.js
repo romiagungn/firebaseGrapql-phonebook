@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { UpdateContact, updateOFF } from '../actions';
 
-class PhoneEditFrom extends Component {
+class PhoneEditFrom extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -31,7 +31,7 @@ class PhoneEditFrom extends Component {
     }
     handleSubmit(event) {
         event.preventDefault()
-            this.props.UpdateContact(this.state.id, this.state.Name, this.state.Number)
+        this.props.UpdateContact(this.state.id, this.state.Name, this.state.Number)
     }
 
     render() {

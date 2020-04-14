@@ -28,18 +28,18 @@ export const loadContact = () => {
         Number
     }
     }`;
-    return dispatch => {
-        return client.query({
-            query: contactQuery,
-        })
-            .then(function (response) {
-                console.log(response,'ini load data men');
-                dispatch(loadContactSuccess(response.data.users))
-            })
-            .catch(function (error) {
-                console.error(error);
-                dispatch(loadContactFailure())
+    return async dispatch => {
+        try {
+            const response = await client.query({
+                query: contactQuery,
             });
+            console.log(response, 'ini load data men');
+            dispatch(loadContactSuccess(response.data.users));
+        }
+        catch (error) {
+            console.error(error);
+            dispatch(loadContactFailure());
+        }
     }
 }
 

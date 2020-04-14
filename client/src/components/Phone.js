@@ -10,7 +10,7 @@ const contact = (props) => {
             <td>
                 {props.sent ? (
                     <div>
-                        <button type="button" className="btn mr-2" onClick={props.onEdit}>
+                        <button type="submit" className="btn mr-2" onClick={props.onEdit}>
                             <i className="fas fa-pencil-alt"></i> Edit</button>
                         <button type="button" className="btn" onClick={props.onDelete}><i className="fas fa-trash"></i> Delete</button>
                     </div>
